@@ -1,12 +1,12 @@
 package com.shea.userservice.controller;
 
 
-import com.shea.userservice.entity.Result;
+import com.shea.Result;
 import com.shea.userservice.entity.dto.UserLoginDTO;
 import com.shea.userservice.entity.dto.UserRegisterDTO;
 import com.shea.userservice.entity.vo.UserLoginVO;
 import com.shea.userservice.service.IUserService;
-import com.shea.userservice.utils.EmailUtil;
+import com.shea.utils.EmailUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

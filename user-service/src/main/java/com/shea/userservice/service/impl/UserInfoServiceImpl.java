@@ -8,7 +8,7 @@ import com.shea.userservice.entity.vo.UserInfoVO;
 import com.shea.userservice.mapper.UserInfoMapper;
 import com.shea.userservice.mapper.UserMapper;
 import com.shea.userservice.service.IUserInfoService;
-import com.shea.userservice.utils.RandomUtil;
+import com.shea.utils.RandomUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;

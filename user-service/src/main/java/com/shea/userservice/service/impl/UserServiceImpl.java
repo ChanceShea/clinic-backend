@@ -3,6 +3,7 @@ package com.shea.userservice.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.shea.exception.ClientException;
 import com.shea.userservice.entity.dto.UserInfoAddDTO;
 import com.shea.userservice.entity.dto.UserLoginDTO;
 import com.shea.userservice.entity.dto.UserRegisterDTO;
@@ -10,13 +11,12 @@ import com.shea.userservice.entity.pojo.User;
 import com.shea.userservice.entity.pojo.UserInfo;
 import com.shea.userservice.entity.vo.UserInfoVO;
 import com.shea.userservice.entity.vo.UserLoginVO;
-import com.shea.userservice.exception.ClientException;
 import com.shea.userservice.mapper.UserInfoMapper;
 import com.shea.userservice.mapper.UserMapper;
 import com.shea.userservice.service.IUserInfoService;
 import com.shea.userservice.service.IUserService;
-import com.shea.userservice.utils.EmailUtil;
-import com.shea.userservice.utils.JwtUtil;
+import com.shea.utils.EmailUtil;
+import com.shea.utils.JwtUtil;
 import jakarta.mail.internet.InternetAddress;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
-import static com.shea.userservice.constant.RedisConstants.EMAIL_CODE_KEY;
+import static com.shea.constant.RedisConstants.EMAIL_CODE_KEY;
 
 /**
  * <p>
@@ -67,7 +67,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         BeanUtils.copyProperties(userInfo,userInfoVO);
         Map<String,Object> claims = new HashMap<>();
         claims.put("username", one.getUsername());
-        claims.put("auth", one.getUserType().toString());
+        if(one.getUserType() != null){
+            claims.put("auth", one.getUserType().toString());
+        }
         String token = JwtUtil.createJwt(claims);
         return new UserLoginVO(token,userInfoVO);
     }

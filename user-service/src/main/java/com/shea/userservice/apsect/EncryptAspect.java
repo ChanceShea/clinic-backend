@@ -1,7 +1,7 @@
 package com.shea.userservice.apsect;
 
 import com.shea.userservice.annotation.Sensitive;
-import com.shea.userservice.entity.Result;
+import com.shea.Result;
 import com.shea.userservice.enums.DataEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;

@@ -2,7 +2,7 @@ package com.shea.userservice.controller;
 
 
 import com.shea.userservice.annotation.EncryptField;
-import com.shea.userservice.entity.Result;
+import com.shea.Result;
 import com.shea.userservice.entity.dto.UserInfoAddDTO;
 import com.shea.userservice.entity.vo.UserInfoVO;
 import com.shea.userservice.service.IUserInfoService;
