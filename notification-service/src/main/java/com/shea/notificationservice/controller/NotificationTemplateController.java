@@ -27,7 +27,7 @@ public class NotificationTemplateController {
     private final INotificationTemplateService notificationTemplateService;
 
     @GetMapping("/queryTemplateByPage")
-    public Result<Page<NotificationTemplateVO>> queryTemplateByPage(NotificationTemplatePageDTO param){
+    public Result<Page<NotificationTemplateVO>> queryTemplateByPage(@ModelAttribute  NotificationTemplatePageDTO param){
         return Result.success(notificationTemplateService.queryTemplateByPage(param));
     }
 

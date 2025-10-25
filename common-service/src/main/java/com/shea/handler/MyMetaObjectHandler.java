@@ -18,13 +18,13 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         log.info("insert fill...");
-        strictInsertFill(metaObject,"createTime",LocalDateTime.class, LocalDateTime.now());
-        strictInsertFill(metaObject,"updateTime",LocalDateTime.class, LocalDateTime.now());
+        strictInsertFill(metaObject,"createdTime",LocalDateTime.class, LocalDateTime.now());
+        strictInsertFill(metaObject,"updatedTime",LocalDateTime.class, LocalDateTime.now());
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
         log.info("update fill...");
-        strictUpdateFill(metaObject,"updateTime",LocalDateTime.class, LocalDateTime.now());
+        strictUpdateFill(metaObject,"updatedTime",LocalDateTime.class, LocalDateTime.now());
     }
 }

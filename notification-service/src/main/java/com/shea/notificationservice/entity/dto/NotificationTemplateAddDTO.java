@@ -35,6 +35,8 @@ public class NotificationTemplateAddDTO {
 
     private String description;
 
+    private String variables;
+
     private String createTime;
 
     private String updateTime;

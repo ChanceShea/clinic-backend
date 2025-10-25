@@ -42,7 +42,7 @@ public class NotificationRecordServiceImpl extends ServiceImpl<NotificationRecor
                 .le(ObjectUtil.isNotNull(param.getEndDate()), NotificationRecord::getSentTime, param.getEndDate())
                 .orderByDesc(NotificationRecord::getSentTime);
         // 将查询出来的数据转换成VO
-        Page<NotificationRecord> result = baseMapper.selectPage(new Page<>(param.getPageNum(), param.getPageSize()), queryWrapper);
+        Page<NotificationRecord> result = baseMapper.selectPage(new Page<>(param.getPage(), param.getPageSize()), queryWrapper);
         List<NotificationRecordVO> collect = result.getRecords().stream().map(item -> {
             NotificationRecordVO vo = new NotificationRecordVO();
             BeanUtils.copyProperties(item, vo);

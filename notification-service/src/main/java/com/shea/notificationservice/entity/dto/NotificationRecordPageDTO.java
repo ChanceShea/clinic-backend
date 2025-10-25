@@ -1,6 +1,5 @@
 package com.shea.notificationservice.entity.dto;
 
-import cn.hutool.db.PageResult;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +15,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class NotificationRecordPageDTO extends PageResult {
+public class NotificationRecordPageDTO {
 
     private String receiver;
 
@@ -34,7 +33,8 @@ public class NotificationRecordPageDTO extends PageResult {
 
     private String businessId;
 
-    private int pageNum;
+    private Integer page;
 
-    private int pageSize;
+    private Integer pageSize;
+
 }
